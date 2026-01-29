@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",  // Required for GitHub Pages
+  output: "export", // Required for GitHub Pages
   images: {
     unoptimized: true, // Required for static export
   },
