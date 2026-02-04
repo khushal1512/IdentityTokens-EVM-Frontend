@@ -40,6 +40,9 @@ const utsahaFont = localFont({
 
 export const metadata: Metadata = {
   title: "Decentralized Identity Token",
+  icons: {
+    icon: "/assets/logo.svg",
+  },
   description: "Portable, Recoverable and Self-Sovereign Identity",
 };
 
