@@ -43,7 +43,7 @@ export function HowItWorks() {
           </span>
           <div className="relative mt-1 h-[30px] w-[30px] md:mt-2 md:h-[45px] md:w-[44px]">
             <Image
-              src="/assets/IsoLogo.svg"
+              src="/assets/Isologo.svg"
               alt="logo"
               fill
               className="object-contain"
