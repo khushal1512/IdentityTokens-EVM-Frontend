@@ -5,18 +5,9 @@ import React from "react";
 
 const CTASection = () => {
   return (
-    <section className="flex w-full justify-center bg-dark-bg px-4 py-10 md:py-20 dark:bg-landing-bg">
+    <section className="flex w-full justify-center bg-dark-bg px-4 py-10 md:py-20 dark:bg-black">
       {/* Gradient Box */}
-      <div className="gradient-cta relative flex h-auto min-h-[300px] w-full max-w-[1264px] flex-col items-center overflow-hidden rounded-[30px] text-center shadow-2xl md:h-[510px] md:rounded-[57px]">
-        {/* --- Main Content Area --- */}
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-            backgroundRepeat: "repeat",
-            mixBlendMode: "overlay",
-          }}
-        />
+      <div className="gradient-cta relative flex h-auto min-h-[300px] w-full max-w-[1264px] flex-col items-center overflow-hidden rounded-[30px] text-center shadow-2xl md:h-[510px] md:rounded-[57px] dark:shadow-none">
         {/* Headline */}
         <h2 className="mx-auto mt-8 max-w-[90%] px-4 font-utsaha text-2xl tracking-tight text-black md:mt-[72px] md:max-w-[768px] md:px-0 md:text-6xl">
           By Stability Nexus, For Everyone
@@ -31,22 +22,16 @@ const CTASection = () => {
         <div className="mt-auto flex w-full flex-row items-center justify-between px-6 pb-8 md:px-20 md:pb-16">
           <div className="flex items-center gap-2 md:gap-3">
             <span className="relative h-6 w-6 md:h-12 md:w-12">
-              {/* Logo Icon */}
+              {/* Logo Icon — always use the black logo in CTA (light gradient bg in light, black bg in dark) */}
               <Image
                 src="/assets/logo.svg"
                 alt="DIT Logo"
                 fill
-                className="h-6 w-6 object-contain md:h-12 md:w-12 dark:hidden"
-              />
-              <Image
-                src="/assets/dark-logo.svg"
-                alt="DIT Logo Dark"
-                fill
-                className="hidden h-6 w-6 object-contain md:h-12 md:w-12 dark:block"
+                className="h-6 w-6 object-contain md:h-12 md:w-12"
               />
             </span>
             {/* Logo Text with Custom Font */}
-            <span className="font-atyp text-xl tracking-tighter text-dark-bg md:text-4xl dark:text-white/85">
+            <span className="font-atyp text-xl tracking-tighter text-dark-bg md:text-4xl dark:text-dark-bg">
               dit
             </span>
           </div>
