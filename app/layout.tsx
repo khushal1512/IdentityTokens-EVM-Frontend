@@ -3,7 +3,12 @@ import "@rainbow-me/rainbowkit/styles.css";
 import "./globals.css";
 
 import { Providers } from "./providers";
-import { atypFont, garamondFont, utsahaFont } from "../lib/fonts";
+import {
+  atypFont,
+  garamondFont,
+  utsahaFont,
+  comfortaaFont,
+} from "../lib/fonts";
 
 export const metadata: Metadata = {
   title: "Decentralized Identity Token",
@@ -21,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${atypFont.variable} ${garamondFont.variable} ${utsahaFont.variable} antialiased`}
+        className={`${atypFont.variable} ${garamondFont.variable} ${utsahaFont.variable} ${comfortaaFont.variable} antialiased`}
       >
         <Providers>{children}</Providers>
       </body>

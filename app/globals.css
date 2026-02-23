@@ -7,6 +7,7 @@
   --font-atyp: var(--font-atyp), ui-sans-serif, system-ui;
   --font-garamond: var(--font-garamond), ui-serif, Georgia;
   --font-utsaha: var(--font-utsaha), cursive;
+  --font-comfortaa: var(--font-comfortaa), ui-sans-serif, system-ui;
 
   /* ---- Branding Colors ---- */
   --color-brand-blue: #0553fd;
@@ -46,9 +47,5 @@
   /* ---- Gradient Classes ---- */
   .gradient-cta {
     background: linear-gradient(179deg, #55e99d -9.25%, #fdfdff 99.21%);
-  }
-
-  .dark .gradient-cta {
-    background: linear-gradient(179deg, #1fbf75 -5.25%, #141822 99.8%);
   }
 }
