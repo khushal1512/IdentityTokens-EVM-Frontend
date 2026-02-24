@@ -60,7 +60,7 @@ export function TokenCard({
   const rank = getRankFromEndorsements(endorsements);
 
   return (
-    <div className="group relative flex min-h-[75px] w-full flex-col gap-4 rounded-[16px] border border-card-border bg-card-bg p-4 backdrop-blur-[2.5px] transition-all duration-300 hover:border-white/20 md:px-6 xl:grid xl:grid-cols-12 xl:items-center xl:gap-4">
+    <div className="group relative flex min-h-[75px] w-full flex-col gap-3 rounded-[16px] border border-card-border bg-card-bg p-3 backdrop-blur-[2.5px] transition-all duration-300 hover:border-white/20 sm:gap-4 sm:p-4 md:px-6 xl:grid xl:grid-cols-12 xl:items-center xl:gap-4">
       {/* --- Name & ID --- */}
       <div className="flex min-w-0 flex-col xl:col-span-3">
         <h3 className="truncate font-utsaha text-lg leading-tight text-white">
@@ -87,7 +87,7 @@ export function TokenCard({
       </div>
 
       {/* --- Variant Specific Actions --- */}
-      <div className="flex w-full items-center justify-between gap-3 border-t border-card-border pt-4 xl:col-span-4 xl:justify-end xl:border-none xl:pt-0">
+      <div className="flex w-full flex-wrap items-center justify-between gap-x-2 gap-y-3 border-t border-card-border pt-4 xl:col-span-4 xl:justify-end xl:border-none xl:pt-0">
         {/* HOME Variant */}
         {variant === "home" && (
           <>
@@ -96,20 +96,19 @@ export function TokenCard({
                 <Badge rank={rank} size={20} />
                 <span className="text-white">{endorsements}</span>
               </div>
-              Endorsements
+              <span className="hidden xs:inline">Endorsements</span>
             </div>
-            <div className="flex shrink-0 items-center gap-2">
+            <div className="flex shrink-0 items-center gap-1 sm:gap-2">
               <button
                 onClick={onViewAll}
-                className="px-2 font-utsaha text-sm whitespace-nowrap text-[#0553FD] transition-colors hover:text-blue-400"
+                className="px-1 font-utsaha text-sm whitespace-nowrap text-[#0553FD] transition-colors hover:text-blue-400 sm:px-2"
               >
                 View All
               </button>
 
-              {/* Home Dropdown Menu */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <button className="text-gray-500 transition-colors outline-none hover:text-white">
+                  <button className="p-1 text-gray-500 transition-colors outline-none hover:text-white">
                     <MoreVertical size={20} />
                   </button>
                 </DropdownMenuTrigger>
@@ -142,8 +141,8 @@ export function TokenCard({
         {/* HISTORY Variant */}
         {variant === "history" && (
           <>
-            <div className="mr-2 flex shrink-0 items-center gap-2 font-utsaha text-sm whitespace-nowrap">
-              <span className="font-mono tracking-wide text-gray-400">
+            <div className="flex shrink-0 flex-wrap items-center gap-x-3 gap-y-1 font-utsaha text-sm whitespace-nowrap">
+              <span className="font-mono text-xs tracking-wide text-gray-400 sm:text-sm">
                 {actionWalletId}
               </span>
 
@@ -163,7 +162,7 @@ export function TokenCard({
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button className="shrink-0 text-gray-500 transition-colors outline-none hover:text-white">
+                <button className="shrink-0 p-1 text-gray-500 transition-colors outline-none hover:text-white">
                   <MoreVertical size={20} />
                 </button>
               </DropdownMenuTrigger>
@@ -194,65 +193,70 @@ export function TokenCard({
 
         {/* DISCOVER Variant */}
         {variant === "discover" && (
-          <>
+          <div className="flex w-full items-center justify-between sm:justify-end sm:gap-4">
+            {/* Left side: Stats info */}
             <div className="flex shrink-0 items-center gap-2 font-utsaha text-sm whitespace-nowrap text-gray-400">
-              <div className="flex items-center gap-1.5">
-                <Badge rank={rank} size={20} />
+              <div className="flex items-center gap-1">
+                <Badge rank={rank} size={18} />
                 <span className="font-medium text-white">{endorsements}</span>
               </div>
-              Endorsements
+              <span className="hidden xs:inline">Endorsements</span>
             </div>
-            <div className="flex shrink-0 items-center gap-2">
+
+            {/* Right side: Buttons group */}
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <button
                 onClick={onViewAll}
-                className="px-2 font-utsaha text-sm whitespace-nowrap text-[#0553FD] transition-colors hover:text-blue-400"
+                className="px-1 font-utsaha text-xs font-bold text-[#0553FD] transition-colors hover:text-blue-400 sm:px-2 sm:text-sm"
               >
-                View All
-              </button>
-              <button
-                onClick={onRevoke}
-                className="rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-1.5 font-utsaha text-sm text-red-500 transition-colors hover:bg-red-500/20"
-              >
-                Revoke
-              </button>
-              <button
-                onClick={onEndorse}
-                className="rounded-lg bg-[#0553FD] px-3 py-1.5 font-utsaha text-sm text-white transition-all hover:scale-[1.02] hover:bg-blue-700 active:scale-[0.98]"
-              >
-                Endorse
+                View
               </button>
 
-              {/* Discover Dropdown Menu */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <button className="ml-2 text-gray-500 transition-colors outline-none hover:text-white">
-                    <MoreVertical size={20} />
-                  </button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent
-                  align="end"
-                  className="w-48 border-[#3a3a3a] bg-[#18191D] font-utsaha text-white"
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <button
+                  onClick={onRevoke}
+                  className="rounded-lg border border-red-500/20 bg-red-500/10 px-2 py-1.5 font-utsaha text-xs text-red-500 transition-colors hover:bg-red-500/20 sm:px-3 sm:text-sm"
                 >
-                  <DropdownMenuItem className="cursor-pointer gap-2 hover:bg-white/10 focus:bg-white/5 focus:text-white">
-                    <Share2 size={16} />
-                    <span>Share Token</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="cursor-pointer gap-2 hover:bg-white/10 focus:bg-white/5 focus:text-white">
-                    <Copy size={16} />
-                    <span>Copy ID</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="cursor-pointer gap-2 hover:bg-white/10 focus:bg-white/5 focus:text-white">
-                    <Edit size={16} />
-                    <span>Edit Token</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="cursor-pointer gap-2 text-red-400 hover:bg-white/10 focus:bg-white/5 focus:text-red-400">
-                    <Flame size={16} />
-                    <span>Burn Token</span>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+                  Revoke
+                </button>
+                <button
+                  onClick={onEndorse}
+                  className="rounded-lg bg-[#0553FD] px-2 py-1.5 font-utsaha text-xs text-white transition-all hover:scale-[1.02] hover:bg-blue-700 active:scale-[0.98] sm:px-3 sm:text-sm"
+                >
+                  Endorse
+                </button>
+
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <button className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-gray-500 transition-colors outline-none hover:bg-white/5 hover:text-white">
+                      <MoreVertical size={18} />
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent
+                    align="end"
+                    className="w-48 border-[#3a3a3a] bg-[#18191D] font-utsaha text-white"
+                  >
+                    <DropdownMenuItem className="cursor-pointer gap-2 hover:bg-white/10 focus:bg-white/5 focus:text-white">
+                      <Share2 size={16} />
+                      <span>Share Token</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer gap-2 hover:bg-white/10 focus:bg-white/5 focus:text-white">
+                      <Copy size={16} />
+                      <span>Copy ID</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer gap-2 hover:bg-white/10 focus:bg-white/5 focus:text-white">
+                      <Edit size={16} />
+                      <span>Edit Token</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer gap-2 text-red-400 hover:bg-white/10 focus:bg-white/5 focus:text-red-400">
+                      <Flame size={16} />
+                      <span>Burn Token</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>

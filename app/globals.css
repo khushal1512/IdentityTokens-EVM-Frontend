@@ -39,6 +39,9 @@
   /* ---- Token Card Black Color ---- */
   --color-card-bg: #050505;
   --color-card-border: #18191b;
+
+  /* ---- Custom Breakpoints ---- */
+  --breakpoint-xs: 400px;
 }
 
 @layer base {
