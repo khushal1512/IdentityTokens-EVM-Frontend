@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { FiMenu } from "react-icons/fi";
 
 interface NavItem {
   label: string;
@@ -29,22 +30,10 @@ export function DashboardSidebar() {
       {/* ── Mobile hamburger button (visible only on small screens) ── */}
       <button
         onClick={() => setIsMobileOpen(true)}
-        className="fixed top-5 left-4 z-50 flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-[#18191D] lg:hidden"
+        className="fixed top-5 left-4 z-50 flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-dashboard-bg lg:hidden"
         aria-label="Open sidebar"
       >
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="white"
-          strokeWidth="2"
-          strokeLinecap="round"
-        >
-          <line x1="3" y1="6" x2="21" y2="6" />
-          <line x1="3" y1="12" x2="21" y2="12" />
-          <line x1="3" y1="18" x2="21" y2="18" />
-        </svg>
+        <FiMenu size={24} color="white" />
       </button>
 
       {/* ── Mobile overlay ── */}
@@ -57,7 +46,7 @@ export function DashboardSidebar() {
 
       {/* ── Sidebar ── */}
       <aside
-        className={`fixed top-0 left-0 z-50 flex h-screen flex-col overflow-x-hidden border-r border-white/5 bg-[#18191D] transition-all duration-300 ease-in-out ${isCollapsed ? "w-[80px]" : "w-[250px]"} ${isMobileOpen ? "translate-x-0" : "-translate-x-full"} lg:relative lg:z-auto lg:translate-x-0`}
+        className={`fixed top-0 left-0 z-50 flex h-screen flex-col overflow-x-hidden border-r border-white/5 bg-dashboard-bg transition-all duration-300 ease-in-out ${isCollapsed ? "w-[80px]" : "w-[250px]"} ${isMobileOpen ? "translate-x-0" : "-translate-x-full"} lg:relative lg:z-auto lg:translate-x-0`}
       >
         {/* ─── Logo area ─── */}
         <div className="flex h-[72px] shrink-0 items-center justify-between border-b border-white/5 px-5">
